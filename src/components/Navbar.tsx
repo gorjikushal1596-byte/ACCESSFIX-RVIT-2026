@@ -14,11 +14,6 @@ export const Navbar: React.FC = () => {
         </div>
 
         <nav className="nav-actions">
-          <div className="hackathon-chip">
-            <span className="pulse-dot"></span>
-            <span>36h Hackathon Sprint</span>
-          </div>
-
           <a
             href="#demo"
             className="btn btn-secondary btn-sm"

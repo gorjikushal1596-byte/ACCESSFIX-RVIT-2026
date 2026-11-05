@@ -208,7 +208,6 @@ export const DisabilitySimulator: React.FC<DisabilitySimulatorProps> = ({
               <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff' }}>
                 Interactive Disability Perspective Simulator
               </h3>
-              <span className="badge badge-primary-glow">Judge Demo Feature</span>
             </div>
             <p style={{ color: 'var(--text-dim)', fontSize: '0.82rem' }}>
               Test accessibility through the lived experience of blind & visually impaired users

@@ -15,6 +15,26 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({
   filterSeverity,
   setFilterSeverity,
 }) => {
+  const findings: any[] = scanResult?.findings || [];
+  const score = scanResult?.score ?? scanResult?.summary?.score ?? 100;
+  const errorCount =
+    scanResult?.countsBySeverity?.error ??
+    findings.filter((f: any) => f.severity === 'error' || f.severity === 'critical').length;
+  const warningCount =
+    scanResult?.countsBySeverity?.warning ??
+    findings.filter((f: any) => f.severity === 'warning' || f.severity === 'moderate').length;
+
+  const filteredFindings = useMemo(() => {
+    if (filterSeverity === 'all') return findings;
+    if (filterSeverity === 'critical' || filterSeverity === 'serious') {
+      return findings.filter((f) => f.severity === 'error' || f.severity === 'critical');
+    }
+    if (filterSeverity === 'warning' || filterSeverity === 'moderate' || filterSeverity === 'minor') {
+      return findings.filter((f) => f.severity === 'warning' || f.severity === 'moderate');
+    }
+    return findings;
+  }, [findings, filterSeverity]);
+
   if (!scanResult) {
     return (
       <section className="container" aria-label="Scan Results Placeholder">
@@ -30,26 +50,6 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({
       </section>
     );
   }
-
-  const findings: any[] = scanResult.findings || [];
-  const score = scanResult.score ?? scanResult.summary?.score ?? 100;
-  const errorCount =
-    scanResult.countsBySeverity?.error ??
-    findings.filter((f: any) => f.severity === 'error' || f.severity === 'critical').length;
-  const warningCount =
-    scanResult.countsBySeverity?.warning ??
-    findings.filter((f: any) => f.severity === 'warning' || f.severity === 'moderate').length;
-
-  const filteredFindings = useMemo(() => {
-    if (filterSeverity === 'all') return findings;
-    if (filterSeverity === 'critical' || filterSeverity === 'serious') {
-      return findings.filter((f) => f.severity === 'error' || f.severity === 'critical');
-    }
-    if (filterSeverity === 'warning' || filterSeverity === 'moderate' || filterSeverity === 'minor') {
-      return findings.filter((f) => f.severity === 'warning' || f.severity === 'moderate');
-    }
-    return findings;
-  }, [findings, filterSeverity]);
 
   return (
     <section className="container" aria-labelledby="results-heading">

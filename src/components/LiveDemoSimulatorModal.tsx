@@ -270,7 +270,7 @@ export const LiveDemoSimulatorModal: React.FC<LiveDemoSimulatorModalProps> = ({
                 <span className="badge badge-primary-glow">Autonomous Mode</span>
               </div>
               <p style={{ color: 'var(--text-dim)', fontSize: '0.82rem' }}>
-                Automated end-to-end walkthrough for presentation judges & audience
+                Automated end-to-end walkthrough and pipeline demonstration
               </p>
             </div>
           </div>
@@ -436,7 +436,7 @@ export const LiveDemoSimulatorModal: React.FC<LiveDemoSimulatorModalProps> = ({
           >
             <ShieldCheck size={18} className="text-success" style={{ flexShrink: 0 }} />
             <p style={{ fontSize: '0.82rem', color: '#a7f3d0' }}>
-              <strong>Judge Note:</strong> {currentStepData.judgeHighlight}
+              <strong>Pipeline Highlight:</strong> {currentStepData.judgeHighlight}
             </p>
           </div>
         </div>

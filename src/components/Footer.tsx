@@ -8,7 +8,6 @@ export const Footer: React.FC = () => {
         <div className="footer-left">
           <div className="footer-brand-row">
             <span className="footer-brand-title">AccessFix</span>
-            <span className="badge badge-minor">36-Hour Hackathon Project</span>
           </div>
           <p className="footer-sub">
             Web accessibility remediation tool &bull; <strong>Detect &bull; Repair &bull; Verify</strong>.

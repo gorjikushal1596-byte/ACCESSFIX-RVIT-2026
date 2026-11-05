@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
-import { Play, RotateCcw, Sparkles } from 'lucide-react';
+import { Play, RotateCcw } from 'lucide-react';
 import { AppPhase } from '../hooks/useAccessFix';
 
 interface HeaderProps {
@@ -63,11 +63,6 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           <div className="nav-badges-group">
-            <div className="hackathon-chip">
-              <Sparkles size={13} className="sparkle-icon" aria-hidden="true" />
-              <span>36h Hackathon Sprint</span>
-            </div>
-
             {onStartDemo && (
               <button
                 type="button"
